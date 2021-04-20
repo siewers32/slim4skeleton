@@ -1,0 +1,5 @@
+/vendor
+/cache
+/composer.lock
+/app/settings.php
+.idea

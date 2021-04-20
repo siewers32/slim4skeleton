@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+AddDefaultCharset utf-8
+AddCharset utf-8 .html .css .js
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
