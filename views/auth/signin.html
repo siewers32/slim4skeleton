@@ -1,4 +1,18 @@
 {% extends "layouts/index.html" %}
 {% block content %}
-<h1>Dit is de message: {{ message }}  {{  env }}</h1>
+<h1>Dit is de message: {{ data | first }} </h1>
+<div class="errors">
+    <ul>
+        {% for key, error in errors %}
+        <li>{{ error | first }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<form method="post" action="/auth">
+    <label for="login">First name:</label><br>
+    <input type="text" id="login" name="login" value="{{ data.fname }}"><br>
+    <label for="password">Last name:</label><br>
+    <input type="text" id="password" name="password" value="{{ data.lname }}">
+    <input type="submit" value="verstuur">
+</form>
 {% endblock %}
